@@ -1,1 +1,19 @@
-<h2>{{hero}}</h2>
+<!-- Heading: My Heroes -->
+<h2>My Heroes</h2>
+
+<!-- Unordered List (Heroes) -->
+<ul class="heroes">
+
+  <!-- For each hero of heroes array -->
+  <li *ngFor="let hero of heroes">
+    <!-- Create button, hero equals selectedHero -->
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+      <!-- Display Name and ID -->
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<!-- If selected hero is a truthy value, convert to upper class, set ID to value of selectedHeroID update anme and ID fields -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
